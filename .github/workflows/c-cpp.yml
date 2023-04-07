@@ -13,6 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: devices-info
+      run:  cat /proc/cpuinfo
     - name: install
       run: sudo apt install -y bc gcc-aarch64-linux-gnu gcc-11-aarch64-linux-gnu 
     - name: others
