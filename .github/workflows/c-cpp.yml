@@ -24,15 +24,17 @@ jobs:
         rmdir exfat
         mv exfat-linux exfat
         cd ..
+        mkdir out
+        curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
     - name: make cepheus_defconfig
       run: |
         export ARCH=arm64
         export SUBARCH=arm64
         export CROSS_COMPILE=aarch64-linux-gnu-
-        make cepheus_defconfig
+        make O=out cepheus_defconfig
     - name: make
       run: |
         export ARCH=arm64
         export SUBARCH=arm64
         export CROSS_COMPILE=aarch64-linux-gnu-
-        make
+        make O=out
