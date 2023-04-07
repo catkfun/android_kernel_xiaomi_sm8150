@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: install
-      run: sudo apt install -y bc aarch64-linux-gnu gcc-11-aarch64-linux-gnu 
+      run: sudo apt install -y bc gcc-11-aarch64-linux-gnu 
     - name: paths
       run: export ARCH=arm64 && export SUBARCH=arm64 && export CROSS_COMPILE=aarch64-linux-gnu-
     - name: make cepheus_defconfig
