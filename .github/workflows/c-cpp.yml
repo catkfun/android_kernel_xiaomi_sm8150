@@ -25,7 +25,7 @@ jobs:
         cd fs
         git clone https://github.com/arter97/exfat-linux
         rmdir exfat
-        mov exfat-linux exfat
+        mv exfat-linux exfat
         cd ..
     - name: make cepheus_defconfig
       run: make cepheus_defconfig
