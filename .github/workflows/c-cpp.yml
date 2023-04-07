@@ -16,7 +16,17 @@ jobs:
     - name: install
       run: sudo apt install -y bc gcc-11-aarch64-linux-gnu 
     - name: paths
-      run: export ARCH=arm64 && export SUBARCH=arm64 && export CROSS_COMPILE=aarch64-linux-gnu-
+      run: |
+        export ARCH=arm64
+        export SUBARCH=arm64
+        export CROSS_COMPILE=aarch64-linux-gnu-
+    - name: others
+      run: |
+        cd fs
+        git clone https://github.com/arter97/exfat-linux
+        rmdir exfat
+        mov exfat-linux exfat
+        cd ..
     - name: make cepheus_defconfig
       run: make cepheus_defconfig
     - name: make
