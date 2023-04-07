@@ -1,0 +1,19 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "miui_kernelsu" ]
+  pull_request:
+    branches: [ "miui_kernelsu" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: make cepheus_defconfig
+      run: make cepheus_defconfig
+    - name: make
+      run: make
